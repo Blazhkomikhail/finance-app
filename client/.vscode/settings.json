@@ -1,0 +1,8 @@
+{
+  "jshint.options": {
+
+    "esversion": 9,
+  },
+  "git.ignoreLimitWarning": true,
+  "jest.debugMode": true
+}
