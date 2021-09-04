@@ -16,10 +16,9 @@
   "files": [
     "./declarations.d.ts"
   ],
-  // "paths": {
-  //   "App": ["src/App"],
-  //   "Pages/*": ["src/Pages/*"],
-  // },
+  "paths": {
+    "App": ["src/App"]
+  },
 
   "exclude": [
     "node_modules"
