@@ -10,6 +10,7 @@ const UPDATE_TICKERS = 'UPDATE_TICKERS';
 const UPDATE_INTERVAL = 'UPDATE_INTERVAL';
 
 const defaultState = {
+  prevTickers: [] as ITicker[],
   tickers: [] as ITicker[],
   interval: 5000
 }
@@ -19,7 +20,11 @@ const reducer = (
   action: IAction) => {
     switch(action.type) {
       case UPDATE_TICKERS: {
-        return {...state, tickers: [...action.payload] };
+        return {
+          ...state,
+          prevTickers: [...state.tickers],
+          tickers: [...action.payload] 
+        };
       }
       case UPDATE_INTERVAL: {
         return {...state, interval: action.payload };

@@ -6,15 +6,16 @@ import SettingsPanel from '../SettingsPanel/SettingsPanel';
 import './field.scss';
 
 export const Field = () => {
+  const prevTickersData = useSelector((state: { prevTickers: ITicker[] }) => state.prevTickers);
   const tickersData = useSelector((state: { tickers: ITicker[] }) => state.tickers);
-
   return (
     <div className="field">
       <h2>The most popular tickers</h2>
       <SettingsPanel />
       <div className="field_tickers-wrap">
-        {tickersData.map((ticker) => (
+        {tickersData.map((ticker, idx) => (
           <Ticker key={ticker.ticker}
+            status={prevTickersData.length ? prevTickersData[idx].price <= ticker.price : false}
             ticker={ticker.ticker}
             exchange={ticker.exchange}
             price={ticker.price}

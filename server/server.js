@@ -77,7 +77,7 @@ socketServer.on('connection', (socket) => {
   socket.on('changeTimeout', (value) => {
     clearInterval(timer);
     trackTickers(socket, value.interval);
-    console.log('Current interval value: ', value.interval);
+    console.log(`Current interval value: ${value.interval/1000}s`);
   })
 });
 
