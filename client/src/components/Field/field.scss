@@ -1,0 +1,10 @@
+.field {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &_tickers-wrap {
+    width: 100%;
+  }
+}

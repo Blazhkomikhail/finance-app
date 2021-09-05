@@ -1,0 +1,31 @@
+.ticker { 
+  padding: 5px 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid rgb(71, 71, 71);
+  border-radius: 5px;
+  
+  &_content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &_name {
+    font-weight: 600;
+  }
+
+  &_change__abs {
+    margin-right: 5px;
+  }
+
+  &_last-update-time {
+    font-size: 0.8em;
+    color: rgb(155, 155, 155);
+  }
+}

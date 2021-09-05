@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getTickers } from '../api/api';
+import Field from '../components/Field/Field';
+import './app.scss';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -9,9 +11,7 @@ const App: React.FC = () => {
   }, [])
 
   return (
-    <div>
-      Hello from App!
-    </div>
+    <Field />
   );
 };
 
