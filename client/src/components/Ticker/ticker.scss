@@ -1,9 +1,72 @@
-.ticker { 
-  padding: 5px 10px;
+.ticker-wrap { 
   margin-bottom: 15px;
+  perspective: 200px;
   width: 100%;
-  border: 1px solid rgb(71, 71, 71);
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+
+  &.flipped > .ticker{ 
+    transform: rotateY(180deg);
+  }
+}
+
+.ticker {
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.5s;
+
+  &_frontside,
+  &_backside {
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  &_frontside {
+    box-sizing: border-box;
+    padding: 5px 10px;
+    padding-right: 5px;
+    border-radius: 5px;
+  }
+
+  &_backside {
+    transform: rotateY(180deg);
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #e7e7e7;
+    border: 1px solid rgb(155, 155, 155);
+    border-radius: 5px;
+
+    &-name {
+      position: absolute;
+      top: 50%; 
+      right: 50%;
+      transform: translate(50%,-50%);
+      text-transform: uppercase;
+      font-size: 1.4em;
+      font-weight: 700;
+      color: #f5f5f5;
+      text-shadow: 1px 1px 1px #919191,
+        1px 2px 1px #919191,
+        1px 3px 1px #919191,
+        1px 4px 1px #919191,
+        1px 10px 6px rgba(16,16,16,0.4),
+        1px 11px 10px rgba(16,16,16,0.2),
+        1px 12px 35px rgba(16,16,16,0.2),
+        1px 16px 60px rgba(16,16,16,0.4);
+    }
+  }
 
   &:hover {
     cursor: default;
@@ -17,7 +80,7 @@
     border: 1px solid #fa314a;
   }
   
-  &_content {
+  &_front-content {
     display: flex;
     justify-content: space-between;
   }
@@ -65,6 +128,14 @@
     background-repeat: no-repeat;
   }
 
+  &_buttons {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
   &_close-btn {
     display: inline-block;
     width: 10px;
@@ -74,11 +145,34 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    top: -3px;
-    right: -3px;
+    backface-visibility: hidden;
 
     &:hover {
       cursor: pointer;
+    }
+  }
+
+  &_switch-btn {
+    position: absolute;
+    bottom: -5px;
+    right: -7px;
+    width: 55px;
+    font-size: 0.7em;
+    color: rgb(65, 65, 65);
+
+    &:hover {
+      cursor: pointer;
+      color: rgb(155, 155, 155);
+    }
+
+    &__back {
+      left: 5px;
+      bottom: 2px;
+      color: #9c0303;
+
+      &:hover { 
+        color: lighten($color: #ca0000, $amount: 5);
+      }
     }
   }
 }

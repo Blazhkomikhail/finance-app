@@ -10,7 +10,7 @@ export const Field = () => {
   const tickersData = useSelector((state: { tickers: ITicker[] }) => state.tickers);
   return (
     <div className="field">
-      <h2>The most popular tickers</h2>
+      <h2 className="field-heading">The most popular tickers</h2>
       <SettingsPanel />
       <div className="field_tickers-wrap">
         {tickersData.map((ticker, idx) => (
