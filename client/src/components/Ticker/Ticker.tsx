@@ -16,7 +16,7 @@ export const Ticker = ({
   change,
   change_percent,
   dividend,
-  last_trade_time
+  last_trade_time,
 }: TickerProps) => {
   const changePercent = `(${Math.floor(change_percent * 100)}%)`;
   const [isShowed, setIsShowed] = useState(true);
@@ -25,18 +25,21 @@ export const Ticker = ({
   const onCloseHandle = () => {
     setHide(true);
     setTimeout(() => setIsShowed(false), 1000);
-  }
+  };
 
   const onSwitchHandle = () => {
-    setIsFlipped(prev => !prev);
-  }
+    setIsFlipped((prev) => !prev);
+  };
 
   return (
-    <div 
-      className={`ticker-wrap${hide ? ' hide' : ''}${isFlipped ? ' flipped' : ''}`}
-      style={isShowed ? {display: "block"} : {display: "none"}} >
+    <div
+      className={`ticker-wrap${hide ? ' hide' : ''}${
+        isFlipped ? ' flipped' : ''
+      }`}
+      style={isShowed ? { display: 'block' } : { display: 'none' }}
+    >
       <div className="ticker">
-        <Frontside 
+        <Frontside
           status={status}
           ticker={ticker}
           exchange={exchange}
@@ -48,10 +51,7 @@ export const Ticker = ({
           onCloseHandle={onCloseHandle}
           onSwitchHandle={onSwitchHandle}
         />
-        <Backside 
-          ticker={ticker}
-          onSwitchHandle={onSwitchHandle}
-        />
+        <Backside ticker={ticker} onSwitchHandle={onSwitchHandle} />
       </div>
     </div>
   );

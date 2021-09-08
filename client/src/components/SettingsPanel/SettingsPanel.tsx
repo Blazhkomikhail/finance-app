@@ -1,25 +1,28 @@
 import React, { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateIntervalThunk } from '../../redux/reducer';
+import { updateIntervalThunk } from '../../redux/thunk';
 import { socket } from '../../socket/socket';
 import './settingsPanel.scss';
 
 export const SettingsPanel = () => {
   const dispatch = useDispatch();
-  const currentInterval = useSelector((store: {interval: number}) => store.interval);
+  const currentInterval = useSelector(
+    (store: { interval: number }) => store.interval
+  );
   const onChangeHandle = (event: ChangeEvent<HTMLSelectElement>) => {
     dispatch(updateIntervalThunk(Number(event.target.value), socket));
-  }
+  };
   return (
     <div className="settings">
       <form>
         <label htmlFor="select">
           Select update interval
-          <select 
+          <select
+            data-testid="select"
             className="settings_interval-select"
             value={currentInterval}
             onChange={onChangeHandle}
-            name="interval" 
+            name="interval"
             id="select"
           >
             <option value="1000">1 sec</option>

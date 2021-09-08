@@ -8,11 +8,9 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     getTickers(dispatch);
-  }, [])
+  }, []);
 
-  return (
-    <Field />
-  );
+  return <Field />;
 };
 
 export default App;
