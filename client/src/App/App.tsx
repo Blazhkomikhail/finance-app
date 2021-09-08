@@ -8,7 +8,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     getTickers(dispatch);
-  }, []);
+  }, [dispatch]);
 
   return <Field />;
 };

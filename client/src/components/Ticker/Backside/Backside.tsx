@@ -12,8 +12,11 @@ const Backside: React.FC<BacksideProps> = ({
     <div className="ticker_backside">
       <span className="ticker_backside-name">{ticker}</span>
       <span
+        role="button"
+        tabIndex={0}
         className="ticker_switch-btn ticker_switch-btn__back"
         onClick={onSwitchHandle}
+        onKeyDown={onSwitchHandle}
       >
         Switch on
       </span>

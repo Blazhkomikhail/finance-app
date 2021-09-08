@@ -8,17 +8,17 @@ interface TickerProps extends ITicker {
   status: boolean;
 }
 
-export const Ticker = ({
+export const Ticker: React.FC<TickerProps> = ({
   status,
   ticker,
   exchange,
   price,
   change,
-  change_percent,
+  changePercent,
   dividend,
-  last_trade_time,
-}: TickerProps) => {
-  const changePercent = `(${Math.floor(change_percent * 100)}%)`;
+  lastTradeTime,
+}): JSX.Element => {
+  const percent = `(${Math.floor(changePercent * 100)}%)`;
   const [isShowed, setIsShowed] = useState(true);
   const [isFlipped, setIsFlipped] = useState(false);
   const [hide, setHide] = useState(false);
@@ -43,10 +43,10 @@ export const Ticker = ({
           status={status}
           ticker={ticker}
           exchange={exchange}
-          last_trade_time={last_trade_time}
+          lastTradeTime={lastTradeTime}
           price={price}
           change={change}
-          changePercent={changePercent}
+          changePercent={percent}
           dividend={dividend}
           onCloseHandle={onCloseHandle}
           onSwitchHandle={onSwitchHandle}

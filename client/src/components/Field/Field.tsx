@@ -1,16 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { ITicker } from '../../types/ticker';
+import { ITickerSocketData } from '../../types/ticker';
 import { Ticker } from '../Ticker/Ticker';
 import SettingsPanel from '../SettingsPanel/SettingsPanel';
 import './field.scss';
 
-export const Field = () => {
+const Field: React.FC = (): JSX.Element => {
   const prevTickersData = useSelector(
-    (state: { prevTickers: ITicker[] }) => state.prevTickers
+    (state: { prevTickers: ITickerSocketData[] }) => state.prevTickers
   );
   const tickersData = useSelector(
-    (state: { tickers: ITicker[] }) => state.tickers
+    (state: { tickers: ITickerSocketData[] }) => state.tickers
   );
   return (
     <div className="field">
@@ -29,9 +29,9 @@ export const Field = () => {
             exchange={ticker.exchange}
             price={ticker.price}
             change={ticker.change}
-            change_percent={ticker.change_percent}
+            changePercent={ticker.change_percent}
             dividend={ticker.dividend}
-            last_trade_time={ticker.last_trade_time}
+            lastTradeTime={ticker.last_trade_time}
           />
         ))}
       </div>

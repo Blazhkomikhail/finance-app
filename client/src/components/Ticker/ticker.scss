@@ -1,4 +1,5 @@
 .ticker-wrap { 
+  margin: 1px;
   margin-bottom: 15px;
   perspective: 200px;
   width: 100%;
@@ -146,6 +147,8 @@
     background-repeat: no-repeat;
     position: relative;
     backface-visibility: hidden;
+    text-decoration: none;
+    font-size: 0.1px;
 
     &:hover {
       cursor: pointer;

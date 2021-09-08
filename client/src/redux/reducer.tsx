@@ -31,12 +31,14 @@ const reducer = (state = defaultState, action: IAction) => {
   }
 };
 
-export const updateTickersAction = (payload: ITicker[]) => ({
+export const updateTickersAction = (payload: ITicker[]): IAction => ({
   type: UPDATE_TICKERS,
   payload,
 });
 
-export const updateIntervalAction = (payload: number) => ({
+export const updateIntervalAction = (
+  payload: number
+): { type: string; payload: number } => ({
   type: UPDATE_INTERVAL,
   payload,
 });

@@ -5,7 +5,7 @@ export type FrontsideProps = {
   status: boolean;
   ticker: string;
   exchange: string;
-  last_trade_time: string;
+  lastTradeTime: string;
   price: number;
   change: number;
   changePercent: string;
@@ -18,7 +18,7 @@ const Frontside: React.FC<FrontsideProps> = ({
   status,
   ticker,
   exchange,
-  last_trade_time,
+  lastTradeTime,
   price,
   change,
   changePercent,
@@ -38,7 +38,7 @@ const Frontside: React.FC<FrontsideProps> = ({
           </div>
           <span className="ticker_exchange">{exchange}</span>
           <span className="ticker_last-update-time">
-            {getTime(last_trade_time)}
+            {getTime(lastTradeTime)}
           </span>
         </div>
         <div className="ticker_numbers">
@@ -61,8 +61,22 @@ const Frontside: React.FC<FrontsideProps> = ({
           />
         </div>
         <div className="ticker_buttons">
-          <span onClick={onCloseHandle} className="ticker_close-btn" />
-          <span className="ticker_switch-btn" onClick={onSwitchHandle}>
+          <span
+            onClick={onCloseHandle}
+            className="ticker_close-btn"
+            onKeyDown={onCloseHandle}
+            role="button"
+            tabIndex={0}
+          >
+            {' '}
+          </span>
+          <span
+            className="ticker_switch-btn"
+            onClick={onSwitchHandle}
+            onKeyDown={onSwitchHandle}
+            role="button"
+            tabIndex={0}
+          >
             Switch off
           </span>
         </div>

@@ -4,7 +4,7 @@ import { updateIntervalThunk } from '../../redux/thunk';
 import { socket } from '../../socket/socket';
 import './settingsPanel.scss';
 
-export const SettingsPanel = () => {
+const SettingsPanel: React.FC = (): JSX.Element => {
   const dispatch = useDispatch();
   const currentInterval = useSelector(
     (store: { interval: number }) => store.interval
