@@ -2,7 +2,7 @@ import { Dispatch } from 'react';
 import { Socket as SocketType } from 'socket.io-client';
 import { ITicker } from '../types/ticker';
 import { socket } from '../socket/socket';
-import { updateTickersAction } from '../redux/reducer';
+import { actions } from '../redux/reducer';
 
 export const getTickers = (
   dispatch: Dispatch<{
@@ -13,7 +13,7 @@ export const getTickers = (
   socket.on('connect', () => {
     socket.emit('start');
 
-    socket.on('ticker', (data) => dispatch(updateTickersAction(data)));
+    socket.on('ticker', (data) => dispatch(actions.updateTickersAction(data)));
   });
 
   socket.on('connect_error', () => console.log('connection error'));
